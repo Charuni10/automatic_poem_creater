@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Poem</title>
+        <style>
+            .headin{
+                text-align: center;
+                color: #fff;
+            }
+            .flow{
+                background-color: antiquewhite;
+                padding-left: 450px;
+                margin: 30px;
+                margin-left: 70px;
+                margin-right: 70px;
+                padding-top: 20px;
+                border: antiquewhite 1px solid;
+                border-radius: 10px;
+            }
+            * {
+	box-sizing: border-box;
+}
+body {
+	font-family: poppins;
+	font-size: 16px;
+	color: #fff;
+}
+.form-box {
+	background-color: rgba(0, 0, 0, 0.5);
+	margin: auto auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+	padding: 40px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px #000;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 300px;
+	height: 330px;
+}
+.form-box:before {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+	display: block;
+	filter: blur(2px);
+}
+.form-box .header-text {
+	font-size: 32px;
+	font-weight: 600;
+	padding-bottom: 30px;
+	text-align: center;
+}
+input{
+    border-radius: 5px;
+    margin-left: 20px;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+label{
+    margin-left: 25px;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+.form-box span {
+	font-size: 14px;
+}
+.res{
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 420px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+span a {
+	color: #BBB;
+}
+
+            .sub{
+                padding-top: 10px;
+                padding-bottom: 20px;
+                
+            }
+           
+
+.btn{
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100px;
+    font-size: 10px;
+    font-weight: 600;
+    border: 1px solid #fff;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-left: 60px;
+}
+
+    
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+        </style>
+    </head>
+    <body>
+       
+        <div class="form-box" >
+            <h1 class="headin">Poem generation</h1>
+        <form  action="{% url 'pred' %}" method="post">
+            {% csrf_token %}
+            <label>Enter the Line</label><br>
+            <input type="text"   name="poem"><br><br>
+            <div class="sub">
+                <button type="'submit" class="btn">Compose</button><br>
+                
+            </div>
+          
+        </div>
+        </forms>
+        <div class="res">
+        {% if predicted_text %}
+    <h2>Predicted Poem:</h2>
+    <p>{{ predicted_text }}</p>
+{% endif %}
+</div>
+   <br>
+</body>
+<footer>
+  
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+</html>
